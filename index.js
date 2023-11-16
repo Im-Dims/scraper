@@ -1,10 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-let listModules = {}
-if (!Object.keys(listModules).length) {
-	loadModules(path.join(__dirname, 'src'))
-}
+let listModules = {};
+(async () => {
+	if (!Object.keys(listModules).length) {
+		await loadModules(path.join(__dirname, 'src'))
+	}
+})()
 
 async function loadModules(folder) {
 	for (const dir of fs.readdirSync(folder)) {
