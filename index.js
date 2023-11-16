@@ -3,7 +3,7 @@ const path = require('path')
 
 let listModules = {}
 if (!Object.keys(listModules).length) {
-	loadModules(path.join(__dirname, 'src'))
+	return loadModules(path.join(__dirname, 'src'))
 }
 
 async function loadModules(folder) {
@@ -22,7 +22,7 @@ async function loadModules(folder) {
 			console.log(e)
 			delete listModules[dirname]
 		} finally {
-			listModules = Object.fromEntries(
+			return listModules = Object.fromEntries(
 				Object.entries(listModules).sort(([a], [b]) => a.localeCompare(b))
 			)
 		}
