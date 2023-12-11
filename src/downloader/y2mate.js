@@ -48,18 +48,18 @@ module.exports = async (url) => {
 					const reqTaskJson = await reqTaskId.json()
 					if (reqTaskJson.error) throw new Error(JSON.stringify(reqTaskJson))
 					
-					let retryCount = 0
+					// let retryCount = 0
 					while (true) {
 						const { taskId } = reqTaskJson
 						const fetchTaskId = await fetchPost('https://srvcdn3.2convert.me/api/json/task', { taskId }, headers)
 						const fetchTaskJson = await fetchTaskId.json()
 						
-						if (retryCount > 50) throw new Error(JSON.stringify(fetchTaskJson))
+						// if (retryCount > 50) throw new Error(JSON.stringify(fetchTaskJson))
 						if (!/converting|pending|preparing/i.test(fetchTaskJson.status)) {
 							return raw ? fetchTaskJson : fetchTaskJson.download
 						}
 						
-						retryCount += 1
+						// retryCount += 1
 					}
 				}
 			}
