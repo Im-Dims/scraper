@@ -55,7 +55,7 @@ module.exports = async (url) => {
 						const fetchTaskJson = await fetchTaskId.json()
 						
 						if (retryCount > 10) throw new Error(JSON.stringify(fetchTaskJson))
-						if (!/pending|preparing/i.test(fetchTaskJson.status)) {
+						if (fetchTaskJson.status === 'finished') {
 							return raw ? fetchTaskJson : fetchTaskJson.download
 						}
 						
