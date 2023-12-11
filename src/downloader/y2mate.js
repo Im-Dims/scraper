@@ -54,8 +54,8 @@ module.exports = async (url) => {
 						const fetchTaskId = await fetchPost('https://srvcdn3.2convert.me/api/json/task', { taskId }, headers)
 						const fetchTaskJson = await fetchTaskId.json()
 						
-						if (retryCount > 10) throw new Error(JSON.stringify(fetchTaskJson))
-						if (fetchTaskJson.status === 'finished') {
+						if (retryCount > 50) throw new Error(JSON.stringify(fetchTaskJson))
+						if (!/converting|pending|preparing/i.test(fetchTaskJson.status)) {
 							return raw ? fetchTaskJson : fetchTaskJson.download
 						}
 						
