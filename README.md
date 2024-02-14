@@ -3,4 +3,5 @@
 ## Installation
 
 ```sh
-$ npm i @Im-Dims/scraper@github:Im-Dims/scraper```
+$ npm i @Im-Dims/scraper@github:Im-Dims/scraper
+```
