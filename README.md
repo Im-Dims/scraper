@@ -3,5 +3,4 @@
 ## Installation
 
 ```sh
-npm i @rippanteq/scraper@github:rippanteq/scraper
-```
+$ npm i @Im-Dims/scraper@github: Im-Dims/scraper```
