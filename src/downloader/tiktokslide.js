@@ -9,8 +9,8 @@ async function tt(url) {
       web: 1,
       hd: 1
     }
-  });
-  return response.data;
+  })
+  return response.data
 }
 
 module.exports = tiktokslide
