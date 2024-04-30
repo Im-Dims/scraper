@@ -1,5 +1,5 @@
 const cheerio = require('cheerio')
-const fetch = require('#utils/fetcher')
+const fetch = require('node-fetch')
 
 async function convertVideo(payloadBody = {}) {
 	let videoUrl
